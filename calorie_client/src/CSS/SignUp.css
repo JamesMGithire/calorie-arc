@@ -1,0 +1,40 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: black;
+}
+.navbar a {
+  text-decoration: none;
+  color: red;
+  font-size: 24px;
+}
+.navbar a::after {
+  content: "";
+  width: 0%;
+  height: 3px;
+  background: red;
+  display: block;
+  margin: auto;
+  transition: 0.5s;
+}
+.navbar a:hover::after {
+  width: 100%;
+}
+.button {
+  height: 45px;
+  color: white;
+  font-size: 18px;
+  background-color: red;
+  border-radius: 8px;
+  border: 1px solid red;
+  cursor: pointer;
+}
+.sign_up{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 5%;
+  width: 50%;
+  height: 50%;
+}
