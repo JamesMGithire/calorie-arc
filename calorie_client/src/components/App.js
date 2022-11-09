@@ -6,6 +6,7 @@ import Login from "./Login";
 import NavBar from "./NavBar";
 import SignUp from "./SignUp"
 import MealPlan from './MealPlan'
+import ContactUs from "./ContactUs";
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Route  path="/login" element={<Login data={data} />}/>
         <Route path="/signup" element={<SignUp handleNewUser={handleNewUser}/>}/>
         <Route path="/meal_plan" element={<MealPlan/>}/>
+        <Route path="/contact_us" element={<ContactUs/>}/>
         <Route path="/" element={<HomePage/>}/>
       </Routes>
     </div>
