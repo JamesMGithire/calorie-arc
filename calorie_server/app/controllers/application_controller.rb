@@ -1,22 +1,20 @@
+require 'active_record/filter'
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
   # Add routes
   get '/users' do
-    messages = Message.all
-    messages.to_json
+    User.all.to_json
   end
   get '/meals' do
-    messages = Message.all
-    messages.to_json
+    Meals.all.to_json
   end
 
   get '/cuisines' do
-    messages = Message.all
-    messages.to_json
+    Cuisine.all.to_json
   end
   
-  post'/history' do
+  post'/history/:id' do
     
   end
 
