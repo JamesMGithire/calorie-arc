@@ -8,7 +8,6 @@ import SignUp from "./SignUp"
 import MealPlan from './MealPlan'
 import ContactUs from "./ContactUs";
 
-
 function App() {
   const[data,setData]=useState([])
   const[newUser, setNewUser]=useState(false)
