@@ -66,4 +66,24 @@ class ApplicationController < Sinatra::Base
     end
   end
 
+  patch '/user/:id' do
+    begin
+      patched = User.find(params[:id])
+      patched.update(params)
+      patched.to_json
+      
+    rescue => exception
+      {message: "Could not patch user\n ERROR : #{exception.message}"}.to_json
+    end
+  end
+
+  delete '/user/:id' do
+    begin
+      deleted = User.find(params[:id]).destroy
+      deleted.to_json
+    rescue => exception
+      {message: "Could not delete user\n ERROR : #{exception.message}"}.to_json
+    end
+  end
+
 end
