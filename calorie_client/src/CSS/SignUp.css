@@ -81,6 +81,7 @@
 .user_names label {
   text-align: center;
   font-size: 18px;
+  display: block;
 }
 .user_names label {
   padding: 12px;
