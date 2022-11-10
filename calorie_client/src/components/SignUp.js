@@ -5,7 +5,7 @@ function Signup({handleNewUser}) {
   const [user, setUser] = useState({
     first_name: "",
     last_name: "",
-    user_name: "",
+    username: "",
     email: "",
     password: "",
   });
@@ -60,7 +60,7 @@ function Signup({handleNewUser}) {
             onChange={handleChange}
             type="text"
             placeholder="username"
-            name="user_name"
+            name="username"
             required
           />
           <label>Email</label>
