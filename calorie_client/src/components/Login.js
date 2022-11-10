@@ -1,21 +1,46 @@
-import React from "react";
+import React, {useState }from "react";
 import { NavLink } from "react-router-dom";
 
-function Login({data}) {
-  function handleChange(e){
-    console.log(data)
-    console.log(e.target.value)
+function Login() {
+
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+
+  let handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      let res = await fetch ("/users/:id",  {
+        method: "POST",
+        body: JSON.stringify({
+          name: name,
+          password: password,
+      }),
+    });
+
+    let resJson  = await res.json();
+    if(resJson.status === "success") {
+      setName("");
+      setPassword("");
+    } else {
+      console.log("Some error occured")
+    }
+  } catch (err) {
+    console.log(err)
   }
+};
+
+
   return (
     <div className="background">
       <div class="main-form">
         <h1>Calorie-arc login</h1>
-        <form action="#" method="POST">
+        <form onSubmit={handleSubmit} >
             <div class="text-field">
                 <input 
                 type="text"
                 required="required"
-                onChange={handleChange}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 />
                 <span></span>
                 <label>Name</label>
@@ -25,7 +50,8 @@ function Login({data}) {
                 <input
                 type="password"
                 required="required"
-                onChange={handleChange}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 />
                 <span></span>
                 <label>Password</label>
