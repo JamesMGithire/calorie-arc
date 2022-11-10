@@ -7,6 +7,7 @@ import NavBar from "./NavBar";
 import SignUp from "./SignUp"
 import MealPlan from './MealPlan'
 import ContactUs from "./ContactUs";
+import Footer from "./Footer"
 
 function App() {
   const[data,setData]=useState([])
@@ -35,6 +36,7 @@ function App() {
         <Route path="/contact_us" element={<ContactUs/>}/>
         <Route path="/" element={<HomePage/>}/>
       </Routes>
+        <Footer />
     </div>
   );
 }
