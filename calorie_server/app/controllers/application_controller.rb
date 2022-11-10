@@ -1,4 +1,3 @@
-require 'active_record/filter'
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
@@ -26,19 +25,36 @@ class ApplicationController < Sinatra::Base
     end
   end
 
+  get '/histories/:user_id' do
+    begin
+      History.where(user_id: (params[:user_id].to_i)).to_json
+    rescue => exception
+      "Could not find histories in databse for user_id #{params[user_id]}\nERROR: #{exception.message}"
+    end
+  end
+
   get '/choices/:user_id' do
     begin
-      Choice.find_by(user_id: params[user_id])
+      Choice.where(user_id: (params[:user_id].to_i)).to_json
     rescue => exception
-      {message: "Could not find choices in databse for user_id #{params[user_id]}\n"}.to_json
+      "Could not find choices in databse for user_id #{params[user_id]}\nERROR: #{exception.message}"
+    end
+  end
+
+  post '/choice' do
+    begin
+      Choice.create(params).to_json
+    rescue => exception
+      "Could not create choice in databse\nERROR: #{exception.message}"
     end
   end
   
   post '/history' do
     begin
-      History.create(meal_id: params[:meal_id], user_id: params[:user_id]).to_json
+      new_history = History.create(meal_id: params[:meal_id], user_id: params[:user_id])
+      new_history.to_json
       rescue => exception
-      {message: "Could not create history in databse\nERROR: #{exception.message}"}.to_json
+      "Could not create history in databse\nERROR: #{exception.message}"
       end
   end
 
@@ -80,6 +96,7 @@ class ApplicationController < Sinatra::Base
   delete '/user/:id' do
     begin
       deleted = User.find(params[:id]).destroy
+      History.where("user_id" == params[:id]).destroy_all
       deleted.to_json
     rescue => exception
       {message: "Could not delete user\n ERROR : #{exception.message}"}.to_json
