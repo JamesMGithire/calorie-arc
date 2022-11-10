@@ -20,7 +20,7 @@ function App() {
       console.log(data)
       setData(data)
     })
-  },[])
+  },[newUser])
 
   function handleNewUser(){
     setNewUser(newUser=>!newUser)
