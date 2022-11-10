@@ -94,19 +94,31 @@ return (
         <div className='contactForm'>
         <form action="" onSubmit={handleSubmit}>
             <h2>Send Message</h2>
-
             <div className='inputBox'>
-            <input type="text" name="" required="required" value={state.fullname} onChange={onInputChange}/>
+            <input 
+                type="text" 
+                name="" 
+                required="required" 
+                // value={state.fullname} 
+                onChange={onInputChange}/>
             <label className="label" htmlFor='fullname'>Full Name</label>
             </div>
 
             <div className='inputBox'>
-            <input type="text" name="" required="required" value={state.email} onChange={onInputChange}/>
+            <input type="text" 
+                name="" 
+                required="required" 
+                // value={state.email} 
+                onChange={onInputChange}/>
             <label className="label" htmlFor='email'>Email</label>
             </div>
 
             <div className='inputBox'>
-            <textarea required="required" value={state.message} onChange={onInputChange}></textarea>
+            <textarea 
+                required="required" 
+                // value={state.message} 
+                onChange={onInputChange}>
+            </textarea>
             <label className="label" htmlFor='message'>Type your message</label>
             </div>
 
