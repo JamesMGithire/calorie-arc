@@ -5,7 +5,7 @@ function Signup({handleNewUser}) {
   const [user, setUser] = useState({
     first_name: "",
     last_name: "",
-    user_name: "",
+    username: "",
     email: "",
     password: "",
   });
@@ -35,8 +35,8 @@ function Signup({handleNewUser}) {
   }
   return (
     <div className="sign_up">
-      <form onSubmit={handleSubmit}>
-        <div>
+      <form onSubmit={handleSubmit} className="sign_up_form">
+        <div className="user_names">
           <label>First Name</label>
           <input
             onChange={handleChange}
@@ -88,11 +88,11 @@ function Signup({handleNewUser}) {
             placeholder="Password"
             required
           />
-        </div>
-        <button>Sign up</button>
-      </form>
-      <p>Already Have An Account?</p>
+           <button>Sign up</button>
+           <p>Already Have An Account?</p>
       <NavLink to="/login">Login</NavLink>
+        </div>
+      </form>
     </div>
   );
 }

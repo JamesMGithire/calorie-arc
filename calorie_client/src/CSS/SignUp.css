@@ -31,12 +31,16 @@
   cursor: pointer;
 }
 .sign_up{
-  display: flex;
-  flex-direction: column;
+  background-image: url("https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-position: center;
+  background-size: cover;
+position: relative;
   margin: auto;
-  margin-top: 5%;
-  width: 50%;
-  height: 50%;
+  overflow: hidden;
+  height: 90vh;
+}
+.sign_up_form{
+  margin-top: 8%;
 }
 .login{
   margin: auto;
@@ -51,6 +55,7 @@
 .form{
   display: flex;
   flex-direction: column;
+  width: 50%;
 }
 .form button{
   width: 10%;
@@ -64,5 +69,26 @@
 .user_info{
   margin: auto;
   display: flex;
+  justify-content: center;
   flex-direction: column;
+  text-align: center;
+  margin: 4px;
+}
+.user_names{
+  text-align: center;
+}
+.user_names input{
+
+}
+.user_info input{
+  width: 30%;
+  padding: 10px;
+  margin: auto;
+}
+.user_info button{
+  width: 15%;
+  padding: 10px;
+  margin: auto;
+  margin-top: 10px;
+  border-radius: 8px;
 }
