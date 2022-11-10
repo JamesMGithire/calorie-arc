@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_09_012821) do
+ActiveRecord::Schema.define(version: 2022_11_10_074640) do
 
   create_table "choices", force: :cascade do |t|
     t.integer "user_id"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2022_11_09_012821) do
     t.string "password"
     t.string "food_calories_range"
     t.string "gender"
+    t.string "email"
   end
 
 end
