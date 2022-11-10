@@ -1,5 +1,7 @@
 import React from 'react'
 import Button from '../Elements/Button/Index';
+import CuisinePage from '../CuisinePage';
+import { Link } from 'react-router-dom';
 
 const UserProfile = () => {
   return (
@@ -15,9 +17,8 @@ const UserProfile = () => {
                 <Button>
                   Choose Here
                 </Button>
-                <a href="/cuisines" className="text-yellow-400 hover:text-yellow-500 font-bold text-decoration-line px-3">
-                  See Cuisines
-                </a>
+               <Link to="/userprofile/cuisines" className="text-yellow-400 hover:text-yellow-500 font-bold text-decoration-line px-3">
+                    See Meals</Link>
               </div>
         </div>
         <div className="banner-image w-full md:w-1/2 p-3 flex justify-end">
