@@ -1,19 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #000;
-}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 
 /* Contact page styling  */
 
@@ -32,14 +19,12 @@ code {
   margin-top: -100px;
 }
 .contact .content h2{
-  font-size: 38px;
+  font-size: 36px;
   font-weight: 500;
   color: #fff;
 }
-
 .contact .content p{
   font-weight: 300;
-  font-size: large;
   color: #fff;
 }
 .container {
@@ -85,12 +70,6 @@ img {
   font-weight: 500;
   color: #00bcd4;
 }
-
-.container .contactInfo .box .text p{
-  font-weight: 500;
-  font-size: large;
-}
-
 
 .contactForm {
   width : 40%;
