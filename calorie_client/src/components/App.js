@@ -37,6 +37,7 @@ function App() {
         <Route path="/contact_us" element={<ContactUs/>}/>
         <Route path="/" element={<HomePage/>}/>
       </Routes>
+      <h1 className="text-3xl font-bold underline">Hello world</h1>
     </div>
   );
 }
