@@ -32,7 +32,8 @@ class ApplicationController < Sinatra::Base
 
   get '/histories/:user_id' do
     begin
-      History.where(user_id: (params[:user_id].to_i)).to_json
+      User.find(params[:user_id]).histories.to_json
+      # History.where(user_id: (params[:user_id].to_i)).to_json
     rescue => exception
       "Could not find histories in databse for user_id #{params[user_id]}\nERROR: #{exception.message}"
     end
