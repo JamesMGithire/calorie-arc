@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 
-function Signup({handleNewUser}) {
+function Signup({ handleNewUser }) {
   let confirms_password = useRef();
   const [user, setUser] = useState({
     first_name: "",
@@ -15,9 +15,9 @@ function Signup({handleNewUser}) {
   function handleChange(e) {
     let name = e.target.name;
     let value = e.target.value;
-    setUser(()=>({
+    setUser(() => ({
       ...user,
-      [name]: value
+      [name]: value,
     }));
   }
   function handleSubmit(e) {
@@ -33,8 +33,8 @@ function Signup({handleNewUser}) {
       .then((data) => {
         console.log(data);
       })
-      .catch(err=>console.log(err));
-    handleNewUser()
+      .catch((err) => console.log(err));
+    handleNewUser();
   }
   return (
     <div className="sign_up">
@@ -77,9 +77,11 @@ function Signup({handleNewUser}) {
           <br />
           <label>Password</label>
           <input
-            onChange={(e)=>{
-              handleChange(e);  
-              setConfirmer(()=>e.target.value==confirms_password.current.value);
+            onChange={(e) => {
+              handleChange(e);
+              setConfirmer(
+                () => e.target.value == confirms_password.current.value
+              );
             }}
             type="password"
             placeholder="Password"
@@ -88,17 +90,18 @@ function Signup({handleNewUser}) {
           />
           <label>Confirm Password</label>
           <input
-            onChange={(e)=>{setConfirmer(()=>e.target.value==user.password)}}
+            onChange={(e) => {
+              setConfirmer(() => e.target.value == user.password);
+            }}
             type="password"
             ref={confirms_password}
             placeholder="Password"
             required
           />
-           <button>Sign up</button>
-           <p>Already Have An Account?</p>
-      <NavLink to="/login">Login</NavLink>
+          {confirmer? <button>Sign up</button> : <p>Password not the same</p>}
+          <p>Already Have An Account?</p>
+          <NavLink to="/login" style={{color:"red"}}>Login Here!</NavLink>
         </div>
-        <button>Sign up</button>
       </form>
     </div>
   );
