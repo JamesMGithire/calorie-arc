@@ -17,6 +17,11 @@ class ApplicationController < Sinatra::Base
     Cuisine.all.to_json
   end
 
+  # get meals from a certain cuisine
+  get '/cuisines/:id' do
+    Meal.where(cuisine_id: params[:id])
+  end
+
   get '/history/:id' do
     begin
       History.find(params[:id]).to_json
