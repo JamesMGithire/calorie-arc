@@ -18,8 +18,9 @@ puts "🌱 Seeding ..."
 # Meal.create(category: "Dinner", name:"Nyama na irio, Kenya",calories: 250, cuisine_id: 1, img_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOkOuFkyUMv9wOBAQTmrVag8tiGxPcIe_bLw&usqp=CAU")
 # Meal.create(category: "Dinner", name:"Jollof rice and egusi soup, Nigeria",calories: 284, cuisine_id: 1, img_url: "https://dynaimage.cdn.cnn.com/cnn/q_auto,w_634,c_fill,g_auto,h_357,ar_16:9/http%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F170410115312-african-food---jollof-rice.jpg")
 # Meal.create(category: "Dinner", name:"Ofada Stew",calories: 311, cuisine_id: 1, img_url: "https://www.okayafrica.com/media-library/nigerian-ofada-stew-with-rice-and-banana-leaf-and-egg.png?id=22775562&width=542&quality=80")
-3.times do
-    History.create(user_id: 1, meal_id: rand(1..18))
-end
+# 3.times do
+#     History.create(user_id: 1, meal_id: rand(1..18))
+# end
+Choice.create(user_id: 1, meal_id: rand(1..18))
 
 puts "✅ Done seeding!"
