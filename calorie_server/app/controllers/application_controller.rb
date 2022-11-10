@@ -67,22 +67,15 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-  post '/user' do
+  post '/users' do
     begin
-      User.create(username: params[:username],
-      first_name: params[:first_name],
-      last_name: params[:lastname],
-      calories: params[:calories],
-      password: params[:password],
-      food_calories_range: params[:food_calories_range],
-      gender: params[:gender],
-      ).to_json
+      User.create(params).to_json
     rescue => exception
       {message: "Could not create user in databse\nERROR: #{exception.message}"}.to_json
     end
   end
 
-  patch '/user/:id' do
+  patch '/users/:id' do
     begin
       patched = User.find(params[:id])
       patched.update(params)
@@ -93,7 +86,7 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-  delete '/user/:id' do
+  delete '/users/:id' do
     begin
       deleted = User.find(params[:id]).destroy
       History.where("user_id" == params[:id]).destroy_all
