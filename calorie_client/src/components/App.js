@@ -14,7 +14,7 @@ function App() {
   const[newUser, setNewUser]=useState(false)
 
   useEffect(()=>{
-    fetch('http://localhost:3000/users')
+    fetch('http://localhost:9292/users')
     .then(res=>res.json())
     .then((data)=>{
       console.log(data)
