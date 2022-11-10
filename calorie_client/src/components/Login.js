@@ -1,15 +1,19 @@
-import React from "react";
+ import React from "react";
+import { useNavigate } from "react-router-dom";
 function Login({data}) {
+
   function handleChange(e){
-    console.log(data)
     console.log(e.target.value)
   }
+  function handleClick(){
+  
+  }
   return (
-    <div>
-      <form>
+    <div className="login">
+      <form className="form">
         <input onChange={handleChange} type="text" placeholder="enter username/email"/>
-        <input onChange={handleChange} type="password" placeholder="password"/><br/>
-        <button>Login</button>
+        <input onChange={handleChange} type="password" placeholder="password" /><br/>
+        <button onClick={handleClick}>Login</button>
       </form>
       
     </div>
