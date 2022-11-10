@@ -32,7 +32,7 @@ function App() {
     <div className="App">
       <NavBar/>
       <Routes>
-        <Route  path="/login" element={<Login data={data} />}/>
+        <Route path="/login" element={<Login data={data} />}/>
         <Route path="/signup" element={<SignUp handleNewUser={handleNewUser}/>}/>
         <Route path="/userprofile" element={<UserProfile/>}/>
         <Route path="/userprofile/cuisines" element={<CuisinePage/>}/>

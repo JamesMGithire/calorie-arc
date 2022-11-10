@@ -6,13 +6,18 @@ function CuisinePage() {
     fetch("http://localhost:9292/meals")
     .then(res=>res.json())
     .then((data)=>{
-        console.log(data)
         setCuisines(data)
     })
   },[]);
+
+  function handleChange(e){
+    console.log(e.target.value)
+  }
+
   return (
     <div className="cuisine_page">
-        <h1>CUISINE</h1>
+        <h1 id="h1">Available Meals</h1><br></br>
+        <input onChange={handleChange} id="input" type="text" placeholder="Search Meals"/><br></br>
         <div className="cuisine_header">
             <div><h3>Images</h3></div>
             <div><h3> Name</h3></div>
@@ -20,6 +25,7 @@ function CuisinePage() {
             <div><h3>Calories</h3></div>
             <div><h3>Choose Meal</h3></div>
         </div>
+        <hr></hr>
            {cuisine.map((cus)=>(
             <div className="cuisine_card">
                 <div className="tr"><img src={cus.img_url}/></div>
