@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 function Signup({handleNewUser}) {
+  let confirms_password = useRef();
   const [user, setUser] = useState({
     first_name: "",
     last_name: "",
@@ -9,18 +10,19 @@ function Signup({handleNewUser}) {
     email: "",
     password: "",
   });
+  const [confirmer, setConfirmer] = useState();
+
   function handleChange(e) {
     let name = e.target.name;
     let value = e.target.value;
-    setUser({
+    setUser(()=>({
       ...user,
-      [name]: value,
-    });
+      [name]: value
+    }));
   }
-
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("http://localhost:3000/users", {
+    fetch("http://localhost:9292/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -30,7 +32,8 @@ function Signup({handleNewUser}) {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-      });
+      })
+      .catch(err=>console.log(err));
     handleNewUser()
   }
   return (
@@ -74,7 +77,10 @@ function Signup({handleNewUser}) {
           <br />
           <label>Password</label>
           <input
-            onChange={handleChange}
+            onChange={(e)=>{
+              handleChange(e);  
+              setConfirmer(()=>e.target.value==confirms_password.current.value);
+            }}
             type="password"
             placeholder="Password"
             name="password"
@@ -82,14 +88,14 @@ function Signup({handleNewUser}) {
           />
           <label>Confirm Password</label>
           <input
-            onChange={handleChange}
-            type="Confirm password"
-            name="confirm_password"
+            onChange={(e)=>{setConfirmer(()=>e.target.value==user.password)}}
+            type="password"
+            ref={confirms_password}
             placeholder="Password"
             required
           />
         </div>
-        <button>Sign up</button>
+        {confirmer ?<button>Sign up</button> : <p>Password not the same</p>}
       </form>
       <p>Already Have An Account?</p>
       <NavLink to="/login">Login</NavLink>
