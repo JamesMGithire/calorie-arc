@@ -1,6 +1,5 @@
 import React from 'react'
 import Button from '../Elements/Button/Index';
-import CuisinePage from '../CuisinePage';
 import { Link } from 'react-router-dom';
 
 const UserProfile = () => {
