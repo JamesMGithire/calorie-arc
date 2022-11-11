@@ -1,21 +1,15 @@
 import React, { useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 
-function Signup({ handleNewUser }) {
+function Signup({user, setUser }) {
   let confirms_password = useRef();
-  const [user, setUser] = useState({
-    first_name: "",
-    last_name: "",
-    username: "",
-    email: "",
-    password: "",
-  });
+  
   const [confirmer, setConfirmer] = useState();
 
   function handleChange(e) {
     let name = e.target.name;
     let value = e.target.value;
-    setUser(() => ({
+    setUser((user) => ({
       ...user,
       [name]: value,
     }));
@@ -34,7 +28,7 @@ function Signup({ handleNewUser }) {
         console.log(data);
       })
       .catch((err) => console.log(err));
-    handleNewUser();
+    // handleNewUser();
   }
   return (
     <div className="sign_up">

@@ -16,7 +16,13 @@ import UserDetails from "./UserDetails";
 function App() {
   const[data,setData]=useState([])
   const[newUser, setNewUser]=useState(false)
-
+  const [user, setUser] = useState({
+    first_name: "",
+    last_name: "",
+    username: "",
+    email: "",
+    password: "",
+  });
   useEffect(()=>{
     fetch('http://localhost:9292/users')
     .then(res=>res.json())
@@ -24,7 +30,7 @@ function App() {
       console.log(data)
       setData(data)
     })
-  },[newUser])
+  },[])
 
   function handleNewUser(){
     setNewUser(newUser=>!newUser)
@@ -35,10 +41,10 @@ function App() {
       <NavBar/>
       <Routes>
         <Route  path="/login" element={<Login data={data} />}/>
-        <Route path="/signup" element={<SignUp handleNewUser={handleNewUser}/>}/>
+        <Route path="/signup" element={<SignUp handleNewUser={setUser}/>}/>
         <Route path="/userprofile" element={<UserProfile/>}/>
         <Route path="/userprofile/cuisines" element={<CuisinePage/>}/>
-        <Route path="/meal_plan" element={<MealPlan/>}/>
+        <Route path="/meals" element={<CuisinePage/>}/>
         <Route path="/contact_us" element={<ContactUs/>}/>
         <Route path="/user_details" element={<UserDetails/>}/>
         <Route path="/" element={<HomePage/>}/>
