@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import React,{useEffect, useState} from "react";
 import "../CSS/SignUp.css";
+import '../CSS/UserProfile/Index.css';
 import HomePage from "./HomePage";
 import Login from "./Login";
 import NavBar from "./NavBar";
@@ -42,6 +43,7 @@ function App() {
         <Route path="/user_details" element={<UserDetails/>}/>
         <Route path="/" element={<HomePage/>}/>
       </Routes>
+      <Footer/>
     </div>
   );
 }
