@@ -1,9 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function UserProfile() {
+  const nav = useNavigate();
   return (
     <div className="user-profile">
-      <div className="profile-picture">
+      <div className="profile-picture" onClick={()=>nav("/userprofile/cuisines")}>
         <img
           src="https://images.unsplash.com/photo-1550807014-1236e91b92d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGFyayUyMGZvb2QlMjBwaG90b2dyYXBoeXxlbnwwfHwwfHw%3D&w=1000&q=80"
           alt=""
