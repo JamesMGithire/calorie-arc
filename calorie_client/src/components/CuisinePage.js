@@ -1,29 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import Search from "./Search";
+function CuisinePage({cuisine, search,setSearch}) {
 
-function CuisinePage() {
-  const [cuisine, setCuisines] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:9292/meals")
-      .then((res) => res.json())
-      .then((data) => {
-        setCuisines(data);
-      });
-  }, []);
-
-  function handleChange(e) {
-    console.log(e.target.value);
-  }
+console.log(search)
+const filteredCusinie=cuisine.filter((everyCus)=>everyCus.name.toLowerCase().includes(search.toLowerCase()))
 
   return (
     <div className="cuisine_page">
       <h1 id="h1">Available Meals</h1>
       <br></br>
-      <input
-        onChange={handleChange}
-        id="input"
-        type="text"
-        placeholder="Search Meals"
-      />
+      <Search setSearch={setSearch}/>
       <br></br>
       <div className="cuisine_header">
         <div>
@@ -43,7 +29,7 @@ function CuisinePage() {
         </div>
       </div>
       <hr></hr>
-      {cuisine.map((cus) => (
+      {filteredCusinie.map((cus) => (
         <div className="cuisine_card">
           <div className="tr">
             <img src={cus.img_url} alt="Oops" />
