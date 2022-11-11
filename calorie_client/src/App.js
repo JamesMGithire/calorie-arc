@@ -1,17 +1,31 @@
-import './App.css';
-import Form from './components/LogIn';
-import { Navbar } from './components';
-import { BrowserRouter as Router } from 'react-router-dom';
+import React, { useEffect } from "react";
+import Hero from "./components/Hero";
+import Navbar from "./components/Navbar";
+import scrollreveal from "scrollreveal";
+export default function App() {
+  useEffect(() => {
+    const sr = scrollreveal({
+      origin: "top",
+      distance: "80px",
+      duration: 2000,
+      reset: false,
+    });
+    sr.reveal(
+      `
+        nav,
+        #home,
 
-function App() {
-
-	return (
-		<Router>
-			<Navbar/>
-			<div className="bg-section"></div>
-			<Form />
-		</Router>
-	);
+    `,
+      {
+        opacity: 0,
+        interval: 200,
+      }
+    );
+  }, []);
+  return (
+    <>
+      <Navbar />
+      <Hero />
+    </>
+  );
 }
-
-export default App;
