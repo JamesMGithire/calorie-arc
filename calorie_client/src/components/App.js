@@ -9,6 +9,8 @@ import MealPlan from './MealPlan'
 import ContactUs from "./ContactUs";
 import UserProfile from "./UserProfile/Index";
 import CuisinePage from "./CuisinePage";
+import Footer from "./Footer"
+import UserDetails from "./UserDetails";
 
 function App() {
   const[data,setData]=useState([])
@@ -37,6 +39,7 @@ function App() {
         <Route path="/userprofile/cuisines" element={<CuisinePage/>}/>
         <Route path="/meal_plan" element={<MealPlan/>}/>
         <Route path="/contact_us" element={<ContactUs/>}/>
+        <Route path="/user_details" element={<UserDetails/>}/>
         <Route path="/" element={<HomePage/>}/>
       </Routes>
     </div>
