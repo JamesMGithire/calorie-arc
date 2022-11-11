@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: space-around;
   background-color: black;
+  height: 80px;
 }
 .navbar a {
   text-decoration: none;
@@ -24,17 +25,122 @@
 .button {
   height: 45px;
   color: white;
+  width: 120px;
   font-size: 18px;
   background-color: red;
   border-radius: 8px;
   border: 1px solid red;
   cursor: pointer;
 }
-.sign_up{
+.sign_up {
+  background-image: url("https://images.pexels.com/photos/1640770/pexels-photo-1640770.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  margin: auto;
+}
+.sign_up_form {
+  margin: auto;
+  margin-top: 8%;
+  text-align: center;
+  padding: 2%;
+  width: 50%;
+}
+.login {
+  margin: auto;
+  margin-top: 7%;
+  padding: 10%;
+  background-color: red;
+  border-radius: 2%;
+  height: 40%;
+  width: 25%;
+  text-align: center;
+}
+.form {
   display: flex;
   flex-direction: column;
-  margin: auto;
-  margin-top: 5%;
   width: 50%;
-  height: 50%;
+}
+.form button {
+  width: 10%;
+  text-align: center;
+  align-items: center;
+}
+.form input {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.user_info {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 4px;
+}
+.user_names label {
+  text-align: center;
+  font-size: 18px;
+  display: block;
+}
+.user_names label {
+  padding: 12px;
+}
+.user_info input {
+  width: 30%;
+  padding: 10px;
+  margin: auto;
+}
+.user_info label{
+  padding: 12px;
+  color: black;
+  font-size: 18px;
+}
+.user_info button {
+  width: 15%;
+  padding: 10px;
+  margin: auto;
+  margin-top: 10px;
+  border-radius: 8px;
+  background-color: red;
+  color: white;
+}
+.sign_up_form input{
+  padding: 10px;
+}
+.cuisine_page{
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 70%;
+}
+.cuisine_card{
+  display: flex;
+  justify-content: space-between;
+  height:160px ;
+  margin-bottom: 2%;
+  align-items: center;
+}
+
+.cuisine_card img{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+.cuisine_header{
+  margin-top: 12px;
+  font-size: 22px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 12px;
+}
+.tr{
+  width: 20%;
+}
+.cuisine_header div > h3{
+  color: red;
+  font-size: 24px;
+
+
 }

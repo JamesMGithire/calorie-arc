@@ -2,27 +2,69 @@ class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
   # Add routes
-  get '/messages' do
-    messages = Message.all
-    messages.to_json
+  get '/' do
+    "Calorie API @2022"
+  end
+  
+  get '/users' do
+    User.all.to_json
+  end
+  get '/meals' do
+    Meal.all.to_json
   end
 
-  post '/messages' do
-    message = Message.create(
-      body: params[:body],
-      username: params[:username]
-    )
-    message.to_json
+  get '/cuisines' do
+    Cuisine.all.to_json
   end
 
-  patch '/messages/:id' do
-    message = Message.find(params[:id])
-    message.update(body: params[:body])
-    message.to_json
+  # get meals from a certain cuisine
+  get '/cuisines/:id' do
+    Meal.where(cuisine_id: params[:id]).to_json
   end
 
-  delete '/messages/:id' do
-    message = Message.find(params[:id]).destroy
-    message.to_json
+  get '/choices/:user_id' do
+    begin
+      Choice.where(user_id: (params[:user_id].to_i)).to_json(include: :meal)
+    rescue => exception
+      "Could not find choices in databse for user_id #{params[user_id]}\nERROR: #{exception.message}"
+    end
   end
+
+  post '/choice' do
+    begin
+      Choice.create(params).to_json
+    rescue => exception
+      "Could not create choice in databse\nERROR: #{exception.message}"
+    end
+  end
+
+  post '/users' do
+    begin
+      User.create(params).to_json
+    rescue => exception
+      {message: "Could not create user in databse\nERROR: #{exception.message}"}.to_json
+    end
+  end
+
+  patch '/users/:id' do
+    begin
+      patched = User.find(params[:id])
+      patched.update(params)
+      patched.to_json
+      
+    rescue => exception
+      {message: "Could not patch user\nERROR : #{exception.message}"}.to_json
+    end
+  end
+
+  delete '/users/:id' do
+    begin
+      deleted = User.find(params[:id]).destroy
+      Choice.where("user_id" == params[:id]).destroy_all
+      deleted.to_json
+    rescue => exception
+      {message: "Could not delete user\nERROR : #{exception.message}"}.to_json
+    end
+  end
+
 end
