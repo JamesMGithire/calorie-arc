@@ -10,9 +10,18 @@ function CuisinePage() {
         setCuisines(data)
     })
   },[]);
+  function addChoices(cuisineId,userId){
+    fetch("http://localhost:9292/choices",{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({meal_id: cuisineId, user_id: userId})
+    })
+  }
   return (
     <div className="cuisine_page">
-        <h1>CUISINE</h1>
+        <h1>AVAILABLE MEALS</h1>
         <div className="cuisine_header">
             <div><h3>Images</h3></div>
             <div><h3> Name</h3></div>
@@ -26,7 +35,7 @@ function CuisinePage() {
                 <div className="tr"><h4>{cus.name}</h4></div>
                 <div className="tr"><h4>{cus.category}</h4></div>
                 <div className="tr"><h4>{cus.calories}</h4></div>
-                <div className="tr"><button style={{backgroundColor:"red", color:"white", width:"50px", height:"40px",borderRadius:"8px", fontSize:"24px"}}>+</button></div>
+                <div className="tr"><button onClick={()=>console.log(cus.id)} style={{backgroundColor:"red", color:"white", width:"50px", height:"40px",borderRadius:"8px", fontSize:"24px"}}>+</button></div>
                
             </div>
            ))

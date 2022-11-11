@@ -10,11 +10,14 @@ function Login() {
     e.preventDefault();
     try {
       let res = await fetch ("/users/:id",  {
-        method: "POST",
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        },
         body: JSON.stringify({
-          name: name,
+          username: name,
           password: password,
-      }),
+      })
     });
 
     let resJson  = await res.json();
@@ -43,7 +46,7 @@ function Login() {
                 onChange={(e) => setName(e.target.value)}
                 />
                 <span></span>
-                <label>Name</label>
+                <label>Username</label>
             </div>
 
             <div class="text-field">
