@@ -13,6 +13,7 @@ import CuisinePage from "./CuisinePage";
 function App() {
   const[data,setData]=useState([])
   const[newUser, setNewUser]=useState(false)
+  const[search, setSearch]=useState("")
 
   useEffect(()=>{
     fetch('http://localhost:9292/users')
@@ -22,6 +23,16 @@ function App() {
       setData(data)
     })
   },[newUser])
+
+  const [cuisine, setCuisines] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:9292/meals")
+      .then((res) => res.json())
+      .then((data) => {
+        setCuisines(data);
+      });
+  }, []);
+  
 
   function handleNewUser(){
     setNewUser(newUser=>!newUser)
@@ -34,7 +45,7 @@ function App() {
         <Route path="/login" element={<Login data={data} />}/>
         <Route path="/signup" element={<SignUp handleNewUser={handleNewUser}/>}/>
         <Route path="/userprofile" element={<UserProfile/>}/>
-        <Route path="/userprofile/cuisines" element={<CuisinePage/>}/>
+        <Route path="/userprofile/cuisines" element={<CuisinePage cuisine={cuisine} search={search} setSearch={setSearch}/>}/>
         <Route path="/meal_plan" element={<MealPlan/>}/>
         <Route path="/contact_us" element={<ContactUs/>}/>
         <Route path="/" element={<HomePage/>}/>

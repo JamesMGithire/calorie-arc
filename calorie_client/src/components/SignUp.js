@@ -80,7 +80,7 @@ function Signup({ handleNewUser }) {
             onChange={(e) => {
               handleChange(e);
               setConfirmer(
-                () => e.target.value === confirms_password.current.value
+                ()=> e.target.value === confirms_password.current.value
               );
             }}
             type="password"
