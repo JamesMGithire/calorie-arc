@@ -13,8 +13,8 @@ function UserDetails() {
   let handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let res = await fetch ("/users/:id", {
-        method: "POST",
+      let res = await fetch ("http://localhost:9292/users/:id", {
+        method: "PATCH",
         body: JSON.stringify({
           gender: gender,
           age: age,
