@@ -8,7 +8,7 @@ import SignUp from "./SignUp"
 import MealPlan from './MealPlan'
 import ContactUs from "./ContactUs";
 import UserProfile from "./UserProfile/Index";
-import "../CSS/UserProfile/Index.css"
+import CuisinePage from "./CuisinePage";
 
 function App() {
   const[data,setData]=useState([])
@@ -34,6 +34,7 @@ function App() {
         <Route  path="/login" element={<Login data={data} />}/>
         <Route path="/signup" element={<SignUp handleNewUser={handleNewUser}/>}/>
         <Route path="/userprofile" element={<UserProfile/>}/>
+        <Route path="/userprofile/cuisines" element={<CuisinePage/>}/>
         <Route path="/meal_plan" element={<MealPlan/>}/>
         <Route path="/contact_us" element={<ContactUs/>}/>
         <Route path="/" element={<HomePage/>}/>
