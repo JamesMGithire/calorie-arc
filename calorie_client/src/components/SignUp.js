@@ -91,7 +91,7 @@ function Signup({ handleNewUser }) {
           <label>Confirm Password</label>
           <input
             onChange={(e) => {
-              setConfirmer(() => e.target.value === user.password);
+              setConfirmer(() => e.target.value == user.password && e.target.value != "");
             }}
             type="password"
             ref={confirms_password}

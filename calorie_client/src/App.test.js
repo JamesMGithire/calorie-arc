@@ -1,13 +1,8 @@
 import { render, screen } from '@testing-library/react';
-
 import App from './App';
 
-describe('<App />', () => {
-  test('renders footer', () => {
-    render(<App />);
-
-    const footerElement = screen.getByText(/Calorie-arc Directory @/i);
-
-    expect(footerElement).toBeInTheDocument();
-  });
+test('renders learn react link', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
 });
