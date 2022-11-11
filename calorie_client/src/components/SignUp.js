@@ -80,7 +80,7 @@ function Signup({ handleNewUser }) {
             onChange={(e) => {
               handleChange(e);
               setConfirmer(
-                () => e.target.value == confirms_password.current.value && e.target.value != ""
+                () => e.target.value === confirms_password.current.value && e.target.value !== ""
               );
             }}
             type="password"
@@ -91,7 +91,7 @@ function Signup({ handleNewUser }) {
           <label>Confirm Password</label>
           <input
             onChange={(e) => {
-              setConfirmer(() => e.target.value == user.password && e.target.value != "");
+              setConfirmer(() => e.target.value === user.password && e.target.value !== "");
             }}
             type="password"
             ref={confirms_password}
