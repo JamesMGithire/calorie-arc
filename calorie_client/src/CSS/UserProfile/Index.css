@@ -82,6 +82,8 @@
 img {
     height: auto;
     width: 430px;
+    /* border-radius: 1000px; */
+
 }
 .profile-picture {
     width: 1130px;
@@ -129,23 +131,23 @@ button:hover {
     text-align: center;
 }
 
-.meal-card img {
-    font-size: 50px;
-    display: block;
-    text-align: center;
+.meal-card  img {
     margin: 25px 0px;
-    color: #f9004d;
+    border-radius: 50px;  
 }
 
-.meal-card button {
+h5 {
     color: white;
     font-size: 15px;
     margin-bottom: 15px;
 }
 
-.pra{
+.pra p{
     color: #fcfc;
     font-size: 16px;
     line-height: 27px;
-    margin-bottom: 25p;
+    margin-bottom: 25px;
 }
+
+
+
