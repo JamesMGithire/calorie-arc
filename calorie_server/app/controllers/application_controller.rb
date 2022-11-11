@@ -1,3 +1,4 @@
+require 'pp'  # Pretty print
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
@@ -29,12 +30,24 @@ class ApplicationController < Sinatra::Base
       "Could not find choices in databse for user_id #{params[user_id]}\nERROR: #{exception.message}"
     end
   end
+  
+  post '/validation' do
+    p params
+  end
 
-  post '/choice' do
+  post '/choices' do
     begin
       Choice.create(params).to_json
     rescue => exception
       "Could not create choice in databse\nERROR: #{exception.message}"
+    end
+  end
+
+  delete '/choices/:id' do
+    begin
+      Choice.find(params[:id]).destroy.to_json
+    rescue => exception
+      "Could not delete choice\nERROR : #{exception.message}"
     end
   end
 

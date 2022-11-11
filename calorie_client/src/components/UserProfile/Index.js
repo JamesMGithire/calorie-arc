@@ -1,30 +1,45 @@
-import React from 'react'
-import Button from '../Elements/Button/Index';
-import CuisinePage from '../CuisinePage';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const UserProfile = () => {
+function UserProfile() {
+  const nav = useNavigate();
   return (
-    <div className="banner w-full md:w-2/3 px-7 mx-auto relative flex items-center-justify-between" >
-        <div className="banner-description w-full md:w-1/2 p-3">
-            <h2 className="mb-6 text-4xl font-bold text-black">
-            CUISINES
-            </h2>
-            <p className="font-semibold text-lg text-red-600 py-2">
-              Choose a cuisine
-              </p>
-              <div className="btn-container">
-                <Button>
-                  Choose Here
-                </Button>
-               <Link to="/userprofile/cuisines" className="text-yellow-400 hover:text-yellow-500 font-bold text-decoration-line px-3">
-                    See Meals</Link>
-              </div>
+    <div className="user-profile">
+      <div className="profile-picture" onClick={()=>nav("/userprofile/cuisines")}>
+        <img
+          src="https://images.unsplash.com/photo-1550807014-1236e91b92d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGFyayUyMGZvb2QlMjBwaG90b2dyYXBoeXxlbnwwfHwwfHw%3D&w=1000&q=80"
+          alt=""
+        />
+        <div className="name-dates">
+          <button className="name">Profile</button>
+          {/* <button className="dates">dd/mm/yyyy</button> */}
         </div>
-        <div className="banner-image w-full md:w-1/2 p-3 flex justify-end">
-          <img src= "https://media.istockphoto.com/photos/delicious-meal-on-a-black-plate-top-view-copy-space-picture-id1165399909?b=1&k=20&m=1165399909&s=170667a&w=0&h=Avt2tZq-dpx4w602UqZJuk7Sog9S4-TfD7V0GwBVu6M=" alt="banner" className='max-h-95'/>
+      </div>
+      <div className="choices">
+        <div className="meal-card">
+        <button>Breakfast</button>
+        <div className="pra">
+              <p>Calories.int</p>
+            </div>
+          <img src="https://w0.peakpx.com/wallpaper/6/891/HD-wallpaper-food-black-background-background-black-close-up-food-high-definition-ultra.jpg" alt=""/>
         </div>
+        <div className="meal-card">
+        <button>Lunch</button>
+        <div className="pra">
+              <p>Calories.int</p>
+            </div>
+        <img src="https://images.unsplash.com/photo-1655350210459-7f102cb1b22e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXRodW1ibmFpbHx8NDI3MzYxN3x8ZW58MHx8fHw%3D&auto=format&fit=crop&w=420&q=60" alt=""/>
+        </div>
+        <div className="meal-card">
+        <button>Dinner</button>
+        <div className="pra">
+              <p>Calories.int</p>
+            </div>
+        <img src="https://images.unsplash.com/photo-1508338712271-40539c947a8b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGZvb2QlMjBibGFja3xlbnwwfHwwfHw%3D&w=1000&q=80" alt=""/>
+        </div>
+      </div>
     </div>
-  )
+  );
 }
+
 export default UserProfile;
