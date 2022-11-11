@@ -8,6 +8,7 @@ import SignUp from "./SignUp"
 import MealPlan from './MealPlan'
 import ContactUs from "./ContactUs";
 import Footer from "./Footer"
+import UserDetails from "./UserDetails";
 
 function App() {
   const[data,setData]=useState([])
@@ -34,6 +35,7 @@ function App() {
         <Route path="/signup" element={<SignUp handleNewUser={handleNewUser}/>}/>
         <Route path="/meal_plan" element={<MealPlan/>}/>
         <Route path="/contact_us" element={<ContactUs/>}/>
+        <Route path="/user_details" element={<UserDetails/>}/>
         <Route path="/" element={<HomePage/>}/>
       </Routes>
         <Footer />
