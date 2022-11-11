@@ -8,6 +8,7 @@ import SignUp from "./SignUp"
 import MealPlan from './MealPlan'
 import ContactUs from "./ContactUs";
 import UserProfile from "./UserProfile/Index";
+import "../CSS/UserProfile/Index.css"
 
 function App() {
   const[data,setData]=useState([])
