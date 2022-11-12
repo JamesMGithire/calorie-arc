@@ -25,8 +25,8 @@ function UserProfile({user,setUser, setLoggedIn}) {
         <div className="name-dates">
           <button className="name" onClick={()=>nav("/user_details")}>{user.username !=="" ? user.username : "Profile"}</button>
         </div>
-          <button onClick={handleDelete}>DELETE</button>
       </div>
+      <button className="delete-account" onClick={handleDelete}>DELETE</button>
       <div className="choices">
         <div className="meal-card">
         <button>Breakfast</button>
