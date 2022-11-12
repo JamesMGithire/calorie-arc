@@ -1,8 +1,19 @@
-GUidelines
+# Project's Title - Calorie Arc
+Calorie Arc is a calories tracker app that allows its users to plan their meals and keep track of their calorie intake.
+
+# Project Description
+
+GUIDELINES
 What was your motivation?
+We sought to help people live healthier lives by taking control of what they eat.
+
 Why did you build this project?
+Calorie Arc is a collaborative project built to help people who want to gain, lose or maintain their weight. Calorie Arc gives its users a chance to plan their meals and track their calorie intake.
+
 What problem does it solve?
+
 What did you learn?
+
 What makes your project stand out?
 If your project has a lot of features, consider adding a "Features" section and listing them here.
 # Getting Started with Create React App
