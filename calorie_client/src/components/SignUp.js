@@ -1,16 +1,15 @@
 import React, { useRef, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
-function Signup({user, setUser }) {
+function Signup({ handleNewUser,user, setUser }) {
   let confirms_password = useRef();
-  
+  const nav = useNavigate();
   const [confirmer, setConfirmer] = useState();
-
   function handleChange(e) {
     let name = e.target.name;
     let value = e.target.value;
-    setUser((user) => ({
-      ...user,
+    setUser((userx) => ({
+      ...userx,
       [name]: value,
     }));
   }
@@ -25,10 +24,12 @@ function Signup({user, setUser }) {
     })
       .then((res) => res.json())
       .then((data) => {
+        setUser(()=>data);
         console.log(data);
+        nav("/userprofile");
       })
       .catch((err) => console.log(err));
-    // handleNewUser();
+    handleNewUser();
   }
   return (
     <div className="sign_up">
@@ -85,7 +86,7 @@ function Signup({user, setUser }) {
           <label>Confirm Password</label>
           <input
             onChange={(e) => {
-              setConfirmer(() => e.target.value === user.password && e.target.value !== "");
+              setConfirmer(() => e.target.value !== "");
             }}
             type="password"
             ref={confirms_password}
