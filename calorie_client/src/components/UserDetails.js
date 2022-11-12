@@ -1,41 +1,34 @@
 import React, { useState }from 'react'
+import { useNavigate } from 'react-router-dom';
 
-function UserDetails() {
-
-  const [gender, setGender] = useState("");
-  const [age, setAge] = useState("");
-  const [weight, setWeight] = useState("");
-  const [activity, setActivity] = useState("");
-  const [height, setHeight] = useState("");
-  const [allergy, setAllergy] = useState("");
+function UserDetails({user, setUser}) {
+  const nav = useNavigate();
+  let userInfo={}
+  function handleChange(e){
+    userInfo={
+      ...userInfo,
+      [e.target.name]: e.target.value
+    }
+  }
 
 
   let handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let res = await fetch ("http://localhost:9292/users/:id", {
+      fetch (`http://localhost:9292/users/${user.id}`, {
         method: "PATCH",
-        body: JSON.stringify({
-          gender: gender,
-          age: age,
-          weight: weight,
-          activity: activity,
-          height: height,
-          allergy: allergy,
-        }),
-      });
-
-      let resJson = await res.json();
-      if(resJson.status === 200) {
-        setWeight("");
-        setAge("");
-        setGender("");
-        setActivity("");
-        setHeight("");
-        setAllergy("");
-      } else {
-        console.log("some error occured")
-      }
+        body: JSON.stringify(userInfo),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then(r=>r.json())
+      .then(result=>{
+        if(result.message === "updated"){
+          setUser(()=>result.user)
+          nav("/userprofile")
+          
+        }
+      })
     } catch (err) {
       console.log(err)
     }
@@ -48,73 +41,79 @@ function UserDetails() {
         <h1>Enter your info to find diet</h1>
 
         <form onSubmit={handleSubmit}>
-            <div class="text-field">
+            <div className="text-field">
                 <input 
                 type="text"
                 required="required"
-                value={gender}
-                onChange={(e) => setGender(e.target.value)}
+                defaultValue=""
+                name="gender"
+                onChange={handleChange}
                 />
                 <span></span>
                 <label>Gender</label>
             </div>
 
-            <div class="text-field">
+            <div className="text-field">
                 <input
                 type="number"
                 required="required"
-                value={age}
-                onChange={(e) => setAge(e.target.value)}
+                defaultValue=""
+                name="age"
+                onChange={handleChange}
                 />
                 <span></span>
                 <label>Age</label>
             </div>
 
-            <div class="text-field">
+            <div className="text-field">
                 <input
                 type="number"
+                defaultValue=""
                 required="required"
-                value={weight}
-                onChange={(e) => setWeight(e.target.value)}
+                name="weight"
+                onChange={handleChange}
                 />
                 <span></span>
                 <label>Weight</label>
             </div>
 
-            <div class="text-field">
+            <div className="text-field">
                 <input
                 type="text"
+                defaultValue=""
+                name="activity"
                 required="required"
-                value={activity}
-                onChange={(e) => setActivity(e.target.value)}
+                onChange={handleChange}
                 />
                 <span></span>
                 <label>Activity</label>
             </div>
 
-            <div class="text-field">
+            <div className="text-field">
                 <input
                 type="number"
+                defaultValue=""
                 required="required"
-                value={height}
-                onChange={(e) => setHeight(e.target.value)}
+                name="height"
+                onChange={handleChange}
                 />
                 <span></span>
                 <label>Height</label>
             </div>
 
-            <div class="text-field">
+            <div className="text-field">
                 <input
                 type="text"
+                defaultValue=""
                 required="required"
-                value={allergy}
-                onChange={(e) => setAllergy(e.target.value)}
+                name="allergies"
+                onChange={handleChange}
                 />
                 <span></span>
                 <label>Allergy</label>
             </div>
 
-            <input type="Submit" value="Submit"/>
+            <input type="Submit" defaultValue="Submit"/>
           
         </form>
     </div>

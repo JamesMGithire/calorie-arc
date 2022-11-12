@@ -37,7 +37,7 @@
   background-position: center;
   background-size: cover;
   overflow: hidden;
-  margin: auto;
+  margin: auto auto 3rem auto;
 }
 .sign_up_form {
   margin: auto;

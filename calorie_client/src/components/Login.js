@@ -1,60 +1,63 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-
-function Login({ data }) {
+  function Login({setLoggedIn, setUser}) {
   const nav = useNavigate();
-  const [info, setInfo] = useState({
-    username: "",
-    password: "",
-  });
-  const handleChange = (e) => {
-    let name = e.target.name;
-    let value = e.target.value;
-    setInfo({
-      ...info,
-      [name]: value,
-    });
-  };
+  let userInfo={}
+  function handleChange(e){
+    userInfo={
+      ...userInfo,
+      [e.target.name]: e.target.value
+    }
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
-    data.map((data) => {
-      if (data.username === info.username && data.password === info.password) {
-        nav("/userprofile");
-      }
-    });
+    fetch ("http://localhost:9292/validate",  {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(userInfo)
+      }).then(r=>r.json())
+      .then(result=>{
+        if (result.message=="valid"){
+          setUser(()=>result.user);
+          setLoggedIn(()=>true);
+          nav("/userprofile");
+        } 
+      });
   };
   return (
     <div className="background">
-      <div class="main-form">
+      <div className="main-form">
         <h1>Calorie-arc login</h1>
-        <form onSubmit={handleSubmit}>
-          <div class="text-field">
-            <input
+        <form onSubmit={handleSubmit} >
+          <div className="text-field">
+              <input 
               type="text"
               required="required"
               name="username"
               onChange={handleChange}
-            />
-            <span></span>
-            <label>Username</label>
+              />
+              <span></span>
+              <label>Username</label>
           </div>
 
-          <div class="text-field">
-            <input
+          <div className="text-field">
+              <input
               type="password"
               required="required"
               name="password"
               onChange={handleChange}
-            />
-            <span></span>
-            <label>Password</label>
+              />
+              <span></span>
+              <label>Password</label>
           </div>
+          <div className="signup_link">
 
-          <div class="pass">Forgot Password?</div>
-          <input type="Submit" value="Login" />
-          <div class="signup_link">
-            Not a member?
-            <NavLink to="/signup">Signup</NavLink>
+            <div className="pass">Forgot Password?</div>
+            <input type="Submit" defaultValue="Login" />
+              Not a member? 
+              <NavLink to="/signup">Signup</NavLink>
           </div>
         </form>
       </div>

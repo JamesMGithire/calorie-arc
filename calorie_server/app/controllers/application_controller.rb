@@ -10,6 +10,11 @@ class ApplicationController < Sinatra::Base
   get '/users' do
     User.all.to_json
   end
+
+  get '/users/:id' do
+    User.find(params[:id]).to_json
+  end
+
   get '/meals' do
     Meal.all.to_json
   end
@@ -25,14 +30,20 @@ class ApplicationController < Sinatra::Base
 
   get '/choices/:user_id' do
     begin
-      Choice.where(user_id: (params[:user_id].to_i)).to_json(include: :meal)
+      choices = Choice.where(user_id: (params[:user_id].to_i)).uniq
+      choices.to_json(include: :meal)
     rescue => exception
       "Could not find choices in databse for user_id #{params[user_id]}\nERROR: #{exception.message}"
     end
   end
   
-  post '/validation' do
-    p params
+  post '/validate' do
+    begin
+      user = User.find_by(username: params[:username])
+      user.password == params[:password] ? {user: user, message: "valid"}.to_json : {message: "invalid"}.to_json
+    rescue => exception
+      {message:"Could not find user in databse for user #{params}\nERROR: #{exception.message}"}.to_json
+    end
   end
 
   post '/choices' do
@@ -53,7 +64,14 @@ class ApplicationController < Sinatra::Base
 
   post '/users' do
     begin
-      User.create(params).to_json
+      new_user = User.create(
+        first_name: params[:first_name],
+        last_name: params[:last_name],
+        email: params[:email],
+        password: params[:password],
+        username: params[:username],
+      )
+      {message: "created" ,user: new_user}.to_json
     rescue => exception
       {message: "Could not create user in databse\nERROR: #{exception.message}"}.to_json
     end
@@ -63,7 +81,7 @@ class ApplicationController < Sinatra::Base
     begin
       patched = User.find(params[:id])
       patched.update(params)
-      patched.to_json
+      {message: "updated" , user: patched}.to_json
       
     rescue => exception
       {message: "Could not patch user\nERROR : #{exception.message}"}.to_json
@@ -73,7 +91,7 @@ class ApplicationController < Sinatra::Base
   delete '/users/:id' do
     begin
       deleted = User.find(params[:id]).destroy
-      Choice.where("user_id" == params[:id]).destroy_all
+      # Choice.where("user_id" == params[:id]).destroy_all
       deleted.to_json
     rescue => exception
       {message: "Could not delete user\nERROR : #{exception.message}"}.to_json
