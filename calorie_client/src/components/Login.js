@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-  function Login({info}) {
+  function Login({setLoggedIn, setUser}) {
   const nav = useNavigate();
   let userInfo={}
   function handleChange(e){
@@ -19,7 +19,11 @@ import { NavLink, useNavigate } from "react-router-dom";
           body: JSON.stringify(userInfo)
       }).then(r=>r.json())
       .then(result=>{
-        console.log(result)
+        if (result.message=="valid"){
+          setUser(()=>result.user);
+          setLoggedIn(()=>true);
+          nav("/userprofile");
+        } 
       });
   };
   return (
@@ -32,10 +36,7 @@ import { NavLink, useNavigate } from "react-router-dom";
               type="text"
               required="required"
               name="username"
-              onChange={(e) => {
-                handleChange(e)
-                console.log(userInfo);
-              }}
+              onChange={handleChange}
               />
               <span></span>
               <label>Username</label>
@@ -46,9 +47,7 @@ import { NavLink, useNavigate } from "react-router-dom";
               type="password"
               required="required"
               name="password"
-              onChange={(e) => {
-                handleChange(e)
-                console.log(userInfo)}}
+              onChange={handleChange}
               />
               <span></span>
               <label>Password</label>

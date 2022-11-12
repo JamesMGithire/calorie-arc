@@ -1,35 +1,38 @@
-import React, { useRef, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import React, { useRef, useState } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
 
-function Signup({ handleNewUser,user, setUser }) {
-  let confirms_password = useRef();
-  const nav = useNavigate();
+function Signup({setUser }) {
+  let confirms_password = useRef()
+  const nav = useNavigate()
   const [confirmer, setConfirmer] = useState();
+  const [newUserInfo, setNewUserInfo] = useState({});
   function handleChange(e) {
-    let name = e.target.name;
-    let value = e.target.value;
-    setUser((userx) => ({
-      ...userx,
+    let name = e.target.name
+    let value = e.target.value
+    setNewUserInfo(() => ({
+      ...newUserInfo,
       [name]: value,
-    }));
+    }))
   }
   function handleSubmit(e) {
-    e.preventDefault();
-    fetch("http://localhost:9292/users", {
-      method: "POST",
+    e.preventDefault()
+    fetch('http://localhost:9292/users', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(user),
+      body: JSON.stringify(newUserInfo),
     })
       .then((res) => res.json())
       .then((data) => {
-        setUser(()=>data);
-        console.log(data);
-        nav("/userprofile");
+        console.log(data)
+        if (data.message == 'created') {
+          setUser(() => data.user)
+          nav('/userprofile')
+        }
       })
-      .catch((err) => console.log(err));
-    handleNewUser();
+      .catch((err) => console.log(err))
+    console.log(newUserInfo)
   }
   return (
     <div className="sign_up">
@@ -93,13 +96,15 @@ function Signup({ handleNewUser,user, setUser }) {
             placeholder="Password"
             required
           />
-          {confirmer? <button>Sign up</button> : <p>Password not the same</p>}
+          {confirmer ? <button>Sign up</button> : <p>Password not the same</p>}
           <p>Already Have An Account?</p>
-          <NavLink to="/login" style={{color:"red"}}>Login Here!</NavLink>
+          <NavLink to="/login" style={{ color: 'red' }}>
+            Login Here!
+          </NavLink>
         </div>
       </form>
     </div>
-  );
+  )
 }
 
-export default Signup;
+export default Signup
