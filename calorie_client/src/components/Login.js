@@ -19,7 +19,7 @@ function Login({ data }) {
     e.preventDefault();
     data.map((data) => {
       if (data.username === info.username && data.password === info.password) {
-        return nav("/userprofile");
+        nav("/userprofile");
       }
     });
   };
