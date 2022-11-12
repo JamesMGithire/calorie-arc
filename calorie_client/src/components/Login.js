@@ -9,14 +9,14 @@ function Login() {
   let handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let res = await fetch ("/users/:id",  {
-        method: "GET",
+      let res = await fetch ("http://localhost:9292/validate",  {
+        method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
           username: name,
-          password: password,
+          password: password
       })
     });
 
@@ -42,8 +42,7 @@ function Login() {
                 <input 
                 type="text"
                 required="required"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => {setName(()=>e.target.value)}}
                 />
                 <span></span>
                 <label>Username</label>
@@ -53,8 +52,7 @@ function Login() {
                 <input
                 type="password"
                 required="required"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => {setPassword(()=>e.target.value)}}
                 />
                 <span></span>
                 <label>Password</label>
