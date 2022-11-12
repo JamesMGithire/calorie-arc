@@ -7,10 +7,10 @@ function NavBar() {
       <h2 style={{fontSize:"32px"}}>
         <span style={{color:"red"}}>Cal</span><span style={{color:"white"}}>orie Arc</span>
       </h2>
-      <NavLink to="/">Home</NavLink>
+      <NavLink to="/">My Meals</NavLink>
       <NavLink to="/login">Login</NavLink>
       <NavLink to="/userprofile">User Profile</NavLink>
-      <NavLink to="/meal_plan">Meal Plan</NavLink>
+      <NavLink to="/meals">Meals</NavLink>
       <NavLink to="contact_us">Contact Us</NavLink>
       <NavLink to="/signup"><button className="button">Sign Up</button></NavLink>  
     </div>
