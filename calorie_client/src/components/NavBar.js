@@ -4,10 +4,12 @@ import { NavLink } from "react-router-dom";
 function NavBar() {
   return (
     <div className="navbar">
-      <h2 style={{fontSize:"32px"}}>
-        <span style={{color:"red"}}>Cal</span><span style={{color:"white"}}>orie Arc</span>
-      </h2>
-      <NavLink to="/">My Meals</NavLink>
+      <NavLink to="/">
+        <h2 style={{fontSize:"32px"}}>
+          <span style={{color:"red"}}>Cal</span><span style={{color:"white"}}>orie Arc</span>
+        </h2>
+      </NavLink>
+      <NavLink to="/my_meals">My Meals</NavLink>
       <NavLink to="/login">Login</NavLink>
       <NavLink to="/userprofile">User Profile</NavLink>
       <NavLink to="/meals">Meals</NavLink>
