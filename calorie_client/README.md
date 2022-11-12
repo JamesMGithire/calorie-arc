@@ -7,6 +7,9 @@ Calorie Arc helps people live healthier lives by taking control of what they eat
 # Technologies
 Being a collaborative project, Calorie Arc used different technologies to create a functional app, give the users a unique and aestheticlly pleasing experience and make integration of the code easier. Among the technologies used was ReactJs for event handling and Ruby for the back end.
 # Features
+User-friendly and well-designed UI
+Functionality resolution
+
 
 # Credits
 Technical Mentor: Daniel Karanja who was there to guide us through our project
