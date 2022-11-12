@@ -29,8 +29,9 @@ function App() {
     .then((data)=>{
       console.log(data)
       setData(data)
+      setUser(data[0])
     })
-  },[])
+  },[newUser])
 
   function handleNewUser(){
     setNewUser(newUser=>!newUser)
@@ -41,12 +42,12 @@ function App() {
       <NavBar/>
       <Routes>
         <Route  path="/login" element={<Login data={data} />}/>
-        <Route path="/signup" element={<SignUp handleNewUser={setUser}/>}/>
-        <Route path="/userprofile" element={<UserProfile/>}/>
-        <Route path="/userprofile/cuisines" element={<CuisinePage/>}/>
-        <Route path="/meals" element={<CuisinePage/>}/>
+        <Route path="/signup" element={<SignUp handleNewUser={handleNewUser} setUser={setUser}/>}/>
+        <Route path="/userprofile" element={<UserProfile user={user} setUser={setUser}/>}/>
+        {/* <Route path="/userprofile/cuisines" element={<CuisinePage/>}/> */}
+        <Route path="/meals" element={<CuisinePage user={user}/>}/>
         <Route path="/contact_us" element={<ContactUs/>}/>
-        <Route path="/user_details" element={<UserDetails/>}/>
+        <Route path="/user_details" element={<UserDetails user={user}/>}/>
         <Route path="/" element={<HomePage/>}/>
       </Routes>
       <Footer/>
