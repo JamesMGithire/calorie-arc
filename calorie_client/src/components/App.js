@@ -16,6 +16,7 @@ import UserDetails from "./UserDetails";
 function App() {
   const[data,setData]=useState([])
   const[newUser, setNewUser]=useState(false)
+  const[loggedIn, setLoggedIn]=useState(false)
 
   useEffect(()=>{
     fetch('http://localhost:9292/users')
@@ -32,7 +33,7 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar/>
+      <NavBar loggedIn={loggedIn}/>
       <Routes>
         <Route  path="/login" element={<Login data={data} />}/>
         <Route path="/signup" element={<SignUp handleNewUser={handleNewUser}/>}/>
