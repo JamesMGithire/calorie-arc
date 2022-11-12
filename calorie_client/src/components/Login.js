@@ -2,87 +2,64 @@ import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
   function Login({info}) {
   const nav = useNavigate();
-
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
-
-  // let handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     let res = await fetch ("http://localhost:9292/validate",  {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json"
-  //       },
-  //       body: JSON.stringify({
-  //         username: name,
-  //         password: password
-  //     })
-  //   });
-  // };
+  let userInfo={}
+  function handleChange(e){
+    userInfo={
+      ...userInfo,
+      [e.target.name]: e.target.value
+    }
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
-    // data.map((data) => {
-    //   if (data.username === info.username && data.password === info.password) {
-    //     return nav("/userprofile");
-    //   }
-    // });
+    fetch ("http://localhost:9292/validate",  {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(userInfo)
+      }).then(r=>r.json())
+      .then(result=>{
+        console.log(result)
+      });
   };
   return (
     <div className="background">
-      <div class="main-form">
+      <div className="main-form">
         <h1>Calorie-arc login</h1>
         <form onSubmit={handleSubmit} >
-            <div class="text-field">
-                <input 
-                type="text"
-                required="required"
-                onChange={(e) => {setName(()=>e.target.value)}}
-                />
-                <span></span>
-                <label>Username</label>
-            </div>
-
-            <div class="text-field">
-                <input
-                type="password"
-                required="required"
-                onChange={(e) => {setPassword(()=>e.target.value)}}
-                />
-                <span></span>
-                <label>Password</label>
-            </div>
-
-            <div class="pass">
-                Forgot Password?
-            </div>
-            {/* <input
+          <div className="text-field">
+              <input 
               type="text"
               required="required"
               name="username"
-              onChange={handleChange}
-            />
-            <span></span>
-            <label>Username</label>
+              onChange={(e) => {
+                handleChange(e)
+                console.log(userInfo);
+              }}
+              />
+              <span></span>
+              <label>Username</label>
           </div>
 
-          <div class="text-field">
-            <input
+          <div className="text-field">
+              <input
               type="password"
               required="required"
               name="password"
-              onChange={handleChange}
-            />
-            <span></span>
-            <label>Password</label>
+              onChange={(e) => {
+                handleChange(e)
+                console.log(userInfo)}}
+              />
+              <span></span>
+              <label>Password</label>
           </div>
+          <div className="signup_link">
 
-          <div class="pass">Forgot Password?</div>
-          <input type="Submit" value="Login" />
-          <div class="signup_link">
-            Not a member? */}
-            <NavLink to="/signup">Signup</NavLink>
-          {/* </div> */}
+            <div className="pass">Forgot Password?</div>
+            <input type="Submit" defaultValue="Login" />
+              Not a member? 
+              <NavLink to="/signup">Signup</NavLink>
+          </div>
         </form>
       </div>
     </div>

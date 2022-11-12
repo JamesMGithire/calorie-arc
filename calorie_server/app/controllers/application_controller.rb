@@ -36,12 +36,12 @@ class ApplicationController < Sinatra::Base
     end
   end
   
-  post '/validation' do
+  post '/validate' do
     begin
       user = User.find_by(username: params[:username])
-      user.to_json
+      user.password==params[:password] ? user.to_json : nil.to_json
     rescue => exception
-      "Could not find user in databse for user_id #{params[user_id]}\nERROR: #{exception.message}"
+      {message:"Could not find user in databse for user #{params}\nERROR: #{exception.message}"}.to_json
     end
   end
 
