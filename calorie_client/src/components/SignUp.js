@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 
-function Signup({setUser }) {
+function Signup({setUser,setLoggedIn }) {
   let confirms_password = useRef()
   const nav = useNavigate()
   const [confirmer, setConfirmer] = useState();
@@ -27,8 +27,9 @@ function Signup({setUser }) {
       .then((data) => {
         console.log(data)
         if (data.message == 'created') {
-          setUser(() => data.user)
-          nav('/userprofile')
+          setUser(() => data.user);
+          setLoggedIn(()=>true);
+          nav('/userprofile');
         }
       })
       .catch((err) => console.log(err))
