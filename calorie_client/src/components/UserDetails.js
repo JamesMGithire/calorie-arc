@@ -1,6 +1,6 @@
 import React, { useState }from 'react'
 
-function UserDetails() {
+function UserDetails({user}) {
 
   const [gender, setGender] = useState("");
   const [age, setAge] = useState("");
@@ -13,7 +13,7 @@ function UserDetails() {
   let handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let res = await fetch ("http://localhost:9292/users/:id", {
+      fetch (`http://localhost:9292/users/${user.id}`, {
         method: "PATCH",
         body: JSON.stringify({
           gender: gender,
@@ -21,21 +21,21 @@ function UserDetails() {
           weight: weight,
           activity: activity,
           height: height,
-          allergy: allergy,
+          allergy: allergy
         }),
       });
 
-      let resJson = await res.json();
-      if(resJson.status === 200) {
-        setWeight("");
-        setAge("");
-        setGender("");
-        setActivity("");
-        setHeight("");
-        setAllergy("");
-      } else {
-        console.log("some error occured")
-      }
+    //   let resJson = await res.json();
+    //   if(resJson.status === 200) {
+    //     setWeight("");
+    //     setAge("");
+    //     setGender("");
+    //     setActivity("");
+    //     setHeight("");
+    //     setAllergy("");
+    //   } else {
+    //     console.log("some error occured")
+    //   }
     } catch (err) {
       console.log(err)
     }
@@ -52,8 +52,8 @@ function UserDetails() {
                 <input 
                 type="text"
                 required="required"
-                value={gender}
-                onChange={(e) => setGender(e.target.value)}
+                defaultValue=""
+                onChange={(e) => setGender(()=>e.target.value)}
                 />
                 <span></span>
                 <label>Gender</label>
@@ -63,7 +63,7 @@ function UserDetails() {
                 <input
                 type="number"
                 required="required"
-                value={age}
+                defaultValue=""
                 onChange={(e) => setAge(e.target.value)}
                 />
                 <span></span>
@@ -73,8 +73,8 @@ function UserDetails() {
             <div class="text-field">
                 <input
                 type="number"
+                defaultValue=""
                 required="required"
-                value={weight}
                 onChange={(e) => setWeight(e.target.value)}
                 />
                 <span></span>
@@ -84,8 +84,8 @@ function UserDetails() {
             <div class="text-field">
                 <input
                 type="text"
+                defaultValue=""
                 required="required"
-                value={activity}
                 onChange={(e) => setActivity(e.target.value)}
                 />
                 <span></span>
@@ -95,8 +95,8 @@ function UserDetails() {
             <div class="text-field">
                 <input
                 type="number"
+                defaultValue=""
                 required="required"
-                value={height}
                 onChange={(e) => setHeight(e.target.value)}
                 />
                 <span></span>
@@ -106,8 +106,8 @@ function UserDetails() {
             <div class="text-field">
                 <input
                 type="text"
+                defaultValue=""
                 required="required"
-                value={allergy}
                 onChange={(e) => setAllergy(e.target.value)}
                 />
                 <span></span>
