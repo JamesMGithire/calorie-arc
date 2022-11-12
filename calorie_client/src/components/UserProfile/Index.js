@@ -1,19 +1,28 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function UserProfile() {
+function UserProfile({user,setUser}) {
   const nav = useNavigate();
+
+  function handleDelete(){
+    fetch(`http://localhost:9292/users/${user.id}`,{
+      method: "DELETE"
+    })
+    setUser(()=>"")
+    nav("/signup")
+  }
+  // console.log(user.username)
   return (
     <div className="user-profile">
-      <div className="profile-picture" onClick={()=>nav("/userprofile/cuisines")}>
+      <div className="profile-picture">
         <img
           src="https://images.unsplash.com/photo-1550807014-1236e91b92d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGFyayUyMGZvb2QlMjBwaG90b2dyYXBoeXxlbnwwfHwwfHw%3D&w=1000&q=80"
           alt=""
         />
         <div className="name-dates">
-          <button className="name">Profile</button>
-          {/* <button className="dates">dd/mm/yyyy</button> */}
+          <button className="name" onClick={()=>nav("/user_details")}>{user.username !=="" ? user.username : "Profile"}</button>
         </div>
+          <button onClick={handleDelete}>DELETE</button>
       </div>
       <div className="choices">
         <div className="meal-card">
