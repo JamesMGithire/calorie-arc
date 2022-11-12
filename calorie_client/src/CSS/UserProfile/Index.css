@@ -15,7 +15,7 @@
 .profile-picture img {
     height: auto;
     width: 430px;
-    /* border-radius: 1000px; */
+    border-radius: 50%;
 
 }
 .profile-picture {
@@ -38,6 +38,18 @@
     transition: .4s;
     font-size: 23px;
     margin-bottom: 15px;
+}
+.user-profile .delete-account{
+    position: absolute;
+    display: unset;
+    width: 15%;
+    height:3rem;
+    margin: auto;
+    left: 75%;
+    top:20rem;
+    font-size: 0.96rem;
+    opacity: 0.8;
+    background-color: #850d33;
 }
 
 .user-profile button:hover {
