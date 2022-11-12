@@ -28,15 +28,15 @@ export default function Hero() {
 }
 
 const Section = styled.section`
-  height: 90vh;
-  width: 100vw;
+  height: 100vh;
+  width: 100%;
   position: relative;
   .background {
     height: 100%;
     img {
       object-fit: cover;
       width: 100%;
-      height: 100%;
+      height: 120%;
       filter: brightness(60%);
     }
   }
@@ -70,6 +70,7 @@ const Section = styled.section`
       position: absolute;
       top: 40%;
       right: 10%;
+      padding-bottom:3rem;
       display: flex;
       flex-direction: column;
       align-items: flex-end;
@@ -85,6 +86,7 @@ const Section = styled.section`
         font-size: 2rem;
       }
       em {
+        margin-top:-2rem;
         color: white;
         width: 60%;
         text-align: end;
