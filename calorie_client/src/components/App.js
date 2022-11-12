@@ -12,6 +12,7 @@ import UserProfile from "./UserProfile/Index";
 import CuisinePage from "./CuisinePage";
 import Footer from "./Footer"
 import UserDetails from "./UserDetails";
+import LandingPage from "./LandingPage/LandingPage";
 
 function App() {
   const[data,setData]=useState([])
@@ -48,7 +49,8 @@ function App() {
         <Route path="/meals" element={<CuisinePage user={user}/>}/>
         <Route path="/contact_us" element={<ContactUs/>}/>
         <Route path="/user_details" element={<UserDetails user={user}/>}/>
-        <Route path="/" element={<HomePage/>}/>
+        <Route path="/my_meals" element={<LandingPage/>}/>
+        <Route path="/" element={<LandingPage/>}/>
       </Routes>
       <Footer/>
     </div>
