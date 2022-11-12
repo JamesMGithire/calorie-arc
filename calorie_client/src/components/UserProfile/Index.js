@@ -1,15 +1,18 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function UserProfile({user,setUser}) {
+function UserProfile({user,setUser, setLoggedIn}) {
   const nav = useNavigate();
 
   function handleDelete(){
     fetch(`http://localhost:9292/users/${user.id}`,{
       method: "DELETE"
+    }).then(r=>r.json())
+    .then(()=>{
+      setUser(()=>({}));
+      setLoggedIn(()=>false);
+      nav("/signup");
     })
-    setUser(()=>"")
-    nav("/signup")
   }
   // console.log(user.username)
   return (

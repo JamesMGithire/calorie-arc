@@ -32,7 +32,7 @@ function App() {
       <Routes>
         <Route  path="/login" element={<Login setLoggedIn={setLoggedIn} setUser={setUser}/>}/>
         <Route path="/signup" element={<SignUp setUser={setUser} setLoggedIn={setLoggedIn}/>}/>
-        <Route path="/userprofile" element={<UserProfile user={user} setUser={setUser}/>}/>
+        <Route path="/userprofile" element={<UserProfile user={user} setUser={setUser} setLoggedIn={setLoggedIn}/>}/>
         <Route path="/meals" element={<CuisinePage user={user} loggedIn={loggedIn}/>}/>
         <Route path="/contact_us" element={<ContactUs/>}/>
         <Route path="/user_details" element={<UserDetails user={user} setUser={setUser}/>}/>
