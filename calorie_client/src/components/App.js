@@ -17,7 +17,8 @@ import LandingPage from "./LandingPage/LandingPage";
 function App() {
   const[data,setData]=useState([])
   const[newUser, setNewUser]=useState(false)
-
+  const[user, setUser]=useState()
+  const[loggedIn,setLoggedIn] = useState(false)
   useEffect(()=>{
     fetch('http://localhost:9292/users')
     .then(res=>res.json())
@@ -36,7 +37,7 @@ function App() {
     <div className="App">
       <NavBar loggedIn={loggedIn}/>
       <Routes>
-        <Route  path="/login" element={<Login data={data} />}/>
+        <Route  path="/login" element={<Login data={data} info={user} />}/>
         <Route path="/signup" element={<SignUp handleNewUser={handleNewUser} setUser={setUser}/>}/>
         <Route path="/userprofile" element={<UserProfile user={user} setUser={setUser}/>}/>
         {/* <Route path="/userprofile/cuisines" element={<CuisinePage/>}/> */}
