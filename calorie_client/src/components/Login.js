@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-  function Login() {
+  function Login({info}) {
   const nav = useNavigate();
 
   const [name, setName] = useState("");
@@ -22,11 +22,11 @@ import { NavLink, useNavigate } from "react-router-dom";
   // };
   const handleSubmit = (e) => {
     e.preventDefault();
-    data.map((data) => {
-      if (data.username === info.username && data.password === info.password) {
-        return nav("/userprofile");
-      }
-    });
+    // data.map((data) => {
+    //   if (data.username === info.username && data.password === info.password) {
+    //     return nav("/userprofile");
+    //   }
+    // });
   };
   return (
     <div className="background">
