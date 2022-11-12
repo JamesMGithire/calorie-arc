@@ -4,7 +4,7 @@ import hero from "../assets/hero.jpg";
 export default function Hero() {
   return (
     <Section id="home">
-      <div className="background">
+      <div className="hero-background">
         <img src={hero} alt="Background Image" />
       </div>
       <div className="content">
@@ -31,7 +31,7 @@ const Section = styled.section`
   height: 100vh;
   width: 100%;
   position: relative;
-  .background {
+  .hero-background {
     height: 100%;
     img {
       object-fit: cover;
