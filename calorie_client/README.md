@@ -2,21 +2,22 @@
 Calorie Arc is a calories tracker app that allows its users to plan their meals and keep track of their calorie intake.
 
 # Project Description
-Calorie Arc helps people live healthier lives by taking control of what they eat. It gives the users a chance to choose through an array of meal plans and calculates the calories in every meal.
+Calorie Arc helps people live healthier lives by taking control of what they eat. It gives the users a chance to choose through an array of meal plans and calculates the calories in every meal. Whether you want to gain, lose or maintain your weight, Calorie Arc is the app for you.
 
-GUIDELINES
-What was your motivation?
-We sought to .
+# Technologies
+Being a collaborative project, Calorie Arc used different technologies to create a functional app, give the users a unique and aestheticlly pleasing experience and make integration of the code easier. Among the technologies used was ReactJs for event handling and Ruby for the back end.
+# Features
 
-Why did you build this project?
-Calorie Arc is a collaborative project built to help people who want to gain, lose or maintain their weight. Calorie Arc gives its users a chance to plan their meals and track their calorie intake.
+# Credits
+Technical Mentor: Daniel Karanja who was there to guide us through our project
 
-What problem does it solve?
+Members/Collaborators
+James Githire - Scrum master, Full-stack developer
+Sigei Isack - Full-stack developer
+Shantel Risper - Full-stack developer
+Philip Waruingi - Full-stack developer
+Tressie Muthuri - Full-stack developer, UI & UX enthusiast, Architectural Designer
 
-What did you learn?
-
-What makes your project stand out?
-If your project has a lot of features, consider adding a "Features" section and listing them here.
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
