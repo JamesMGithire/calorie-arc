@@ -2,10 +2,11 @@
 Calorie Arc is a calories tracker app that allows its users to plan their meals and keep track of their calorie intake.
 
 # Project Description
+Calorie Arc helps people live healthier lives by taking control of what they eat. It gives the users a chance to choose through an array of meal plans and calculates the calories in every meal.
 
 GUIDELINES
 What was your motivation?
-We sought to help people live healthier lives by taking control of what they eat.
+We sought to .
 
 Why did you build this project?
 Calorie Arc is a collaborative project built to help people who want to gain, lose or maintain their weight. Calorie Arc gives its users a chance to plan their meals and track their calorie intake.
