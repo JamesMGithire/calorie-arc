@@ -79,37 +79,37 @@ function UserDetails({user, setUser}) {
                 <label>Height (cm)</label>
             </div>
 
-            <div class="select-field">
+            <div className="select-field">
                 <label>Gender:</label>
-              <select onChange={handleChange}>
-                <option name="" value=""></option>
-                <option  name ="male" value ="male"> Male</option>
-                <option  name ="female" value ="female">Female </option>
-                <option  name="other" value ="others"> Others</option>               
+              <select name="gender" onChange={handleChange}>
+                <option name="gender" value=""></option>
+                <option  name ="gender" value ="male"> Male</option>
+                <option  name ="gender" value ="female">Female </option>
+                <option  name="gender" value ="others"> Others</option>               
               </select>
             </div>
 
-            <div class="select-field">
+            <div className="select-field">
               <label>Activity:</label>
-              <select  onChange={handleChange}>
-                <option name="" value=""></option>
-                <option name="moderate" value ="moderate"> Moderate: exercise 4-5 times/week</option>
-                <option name="bmr" value ="bmr">Basal Metabolic Rate </option>
-                <option name="light" value ="light"> Light: exercise 1-3 times /week</option>
-                <option name="sedentary" value ="sedentary">Sedentary: little or no exercise </option>
-                <option name ="very" value ="active"> Very Active: exercise 6-7 times /week</option>                
+              <select  name="activity" onChange={handleChange}>
+                <option value=""></option>
+                <option value ="moderate"> Moderate: exercise 4-5 times/week</option>
+                <option value ="bmr">Basal Metabolic Rate </option>
+                <option value ="light"> Light: exercise 1-3 times /week</option>
+                <option value ="sedentary">Sedentary: little or no exercise </option>
+                <option value ="active"> Very Active: exercise 6-7 times /week</option>                
               </select>
             </div>
 
-            <div class="select-field">
+            <div className="select-field">
               <label>Allergy:</label>
-              <select onChange={handleChange}>
-                <option name="none" value="none">None</option>
-                <option name="anaphylaxis" value ="anaphylaxis"> Anaphylaxis</option>
-                <option name="milk" value ="milk-products">milk product allergy</option>
-                <option name="eggs" value ="eggs"> Egg allergy</option>
-                <option name="peanuts" value ="peanut">Peanut allergy </option>
-                <option name="wheat" value ="wheat"> wheat allergies</option>                
+              <select name="allergies" onChange={handleChange}>
+                <option value="none">None</option>
+                <option value ="anaphylaxis"> Anaphylaxis</option>
+                <option value ="milk-products">milk product allergy</option>
+                <option value ="eggs"> Egg allergy</option>
+                <option value ="peanut">Peanut allergy </option>
+                <option value ="wheat"> wheat allergies</option>                
               </select>
             </div>
 
