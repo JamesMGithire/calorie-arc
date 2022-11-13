@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import React,{ useState} from "react";
 import "../CSS/SignUp.css";
+import "../CSS/selectedMeal.css"
 import '../CSS/UserProfile/Index.css';
 import Login from "./Login";
 import NavBar from "./NavBar";
