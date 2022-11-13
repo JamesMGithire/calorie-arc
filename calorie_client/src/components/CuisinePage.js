@@ -20,19 +20,18 @@ function CuisinePage({ user, loggedIn }) {
       .then((r) => r.json())
       .then((re) => console.log(re));
   }
+
   return (
     <div className="cuisine_page">
       <h1>AVAILABLE MEALS</h1>
-      
-        
-        <div className="options-cuisines">
+      <div className="options-cuisines">
         <select>
           <option>African</option>
           <option>Asian</option>
           <option>African</option>
-          </select>
-        </div>
-      
+        </select>
+      </div>
+
       <div className="cuisine_header">
         <div>
           <h3>Images</h3>
