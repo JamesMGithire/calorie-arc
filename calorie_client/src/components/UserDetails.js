@@ -82,6 +82,7 @@ function UserDetails({user, setUser}) {
             <div class="select-field">
                 <label>Gender:</label>
               <select onChange={handleChange}>
+                <option name="" value=""></option>
                 <option  name ="male" value ="male"> Male</option>
                 <option  name ="female" value ="female">Female </option>
                 <option  name="other" value ="others"> Others</option>               
@@ -91,6 +92,7 @@ function UserDetails({user, setUser}) {
             <div class="select-field">
               <label>Activity:</label>
               <select  onChange={handleChange}>
+                <option name="" value=""></option>
                 <option name="moderate" value ="moderate"> Moderate: exercise 4-5 times/week</option>
                 <option name="bmr" value ="bmr">Basal Metabolic Rate </option>
                 <option name="light" value ="light"> Light: exercise 1-3 times /week</option>
@@ -102,6 +104,7 @@ function UserDetails({user, setUser}) {
             <div class="select-field">
               <label>Allergy:</label>
               <select onChange={handleChange}>
+                <option name="none" value="none">None</option>
                 <option name="anaphylaxis" value ="anaphylaxis"> Anaphylaxis</option>
                 <option name="milk" value ="milk-products">milk product allergy</option>
                 <option name="eggs" value ="eggs"> Egg allergy</option>
