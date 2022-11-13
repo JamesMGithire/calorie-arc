@@ -80,7 +80,7 @@ const Section = styled.section`
         letter-spacing: 0.5rem;
       }
       p {
-        color: lightgreen;
+        color: red;
         font-weight: bold;
         font-size: 2rem;
       }
@@ -96,24 +96,27 @@ const Section = styled.section`
       button {
         padding: 1rem 2rem;
         font-size: 1.4rem;
+        font-weight: bold;
         background-color: black;
         border-radius: 50px;
-        border-style: dotted;
-        border-width: thick;
-        border-color: lightgreen;
+        border: 2px solid ;
+        border-color: red;
+        -webkit-box-reflect: below 0px linear-gradient
+        (transparent, black);
         color: white;
         font-weight: 800;
         letter-spacing: 0.2rem;
         transition: 0.3s ease-in-out;
         cursor: pointer;
+        transition: 0.5s;
 
         &:hover {
-          border-style: dotted;
-          border-width: thick;
+          border: 2px solid ;
           border-color: black;
           border-radius: 50px;
-          background-color: lightgreen;
+          background-color: red;
           color: black;
+          
         }
       }
     }

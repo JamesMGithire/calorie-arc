@@ -109,11 +109,11 @@ const Nav = styled.nav`
         letter-spacing: 0.2rem;
         transition: 0.3s ease-in-out;
         &:hover {
-          color: lightgreen;
+          color: red;
         }
       }
       .active {
-        color: lightgreen;
+        color: red;
       }
     }
   }
@@ -138,7 +138,7 @@ const ResponsiveNav = styled.div`
   right: -100vw;
   top: 0;
   z-index: 10;
-  background-image: linear-gradient(to bottom left, lightgrey, lightgreen, whitesmoke);
+  background-color: black;
   height: 100vh;
   width: ${({ state }) => (state ? "60%" : "0%")};
   transition: 0.3s ease-in-out;
@@ -155,17 +155,17 @@ const ResponsiveNav = styled.div`
       margin-left: 2rem;
       a {
         text-decoration: none;
-        color: black;
+        color: white;
         font-weight: bold;
         font-size: 1.2rem;
         transition: 0.1s ease-in-out;
         &:hover {
-          color: white;
+          color: red;
         }
       }
       &:first-of-type {
         a {
-          color: black;
+          color: red;
           font-weight: 900;
         }
       }
