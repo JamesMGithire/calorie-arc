@@ -300,4 +300,12 @@ input[type="Submit"]:hover
     width: 100%;
   }
 }
+
+
+.options-cuisines select{
+  background-color: red;
+  font-size: large;
+  color: white;
+  border-radius: 50px;
+}
 /* END */

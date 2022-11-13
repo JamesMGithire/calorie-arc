@@ -25,7 +25,7 @@ function CuisinePage({ user, loggedIn }) {
     <div className="cuisine_page">
       <h1>AVAILABLE MEALS</h1>
       <div className="options-cuisines">
-        <select>
+        <select >
           <option>African</option>
           <option>Asian</option>
           <option>African</option>
