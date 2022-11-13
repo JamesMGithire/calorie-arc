@@ -48,7 +48,7 @@ class ApplicationController < Sinatra::Base
 
   post '/choices' do
     begin
-      Choice.create(params).to_json
+      Choice.create(params).to_json(include: :meal)
     rescue => exception
       {message: "Could not create choice in databse\nERROR: #{exception.message}"}.to_json
     end

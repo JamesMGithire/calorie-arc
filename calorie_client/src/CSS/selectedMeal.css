@@ -19,7 +19,7 @@
   margin: auto auto 5rem auto;
   display: grid;
   width: 85%;
-  grid-template-columns: repeat(4, 350px);
+  grid-template-columns: repeat(3, 350px);
   grid-template-rows: auto;
   column-gap: 30px;
   row-gap: 25px;

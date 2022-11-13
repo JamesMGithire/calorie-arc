@@ -13,6 +13,10 @@ function CuisinePage({user, loggedIn, meals}) {
     .then(r=>r.json())
     .then(re=>console.log(re))
   }
+
+  // function handleAdd(id){
+  //   addChoices(id)
+  // }
   return (
     <div className="cuisine_page">
         <h1>AVAILABLE MEALS</h1>
