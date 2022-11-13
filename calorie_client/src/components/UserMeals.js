@@ -1,11 +1,11 @@
 import React from "react"
-function UserMeals({meals}){
+function UserMeals({userMeals}){
     return(
         <div>
             <h1>
             Selected Meals
             </h1>
-            {meals.map(meal=><div key={meal.id}>{`${meal}`}</div>)}
+            {userMeals.map(meal=><div key={meal.id}>{`${meal}`}</div>)}
         </div>
     )
 }
