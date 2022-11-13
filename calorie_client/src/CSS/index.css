@@ -19,12 +19,14 @@ code {
 .background{
   background-image: url(../images/login-background.jpeg);
   background-size: cover;
-  width: 100%;
-  height: min-content;
+  min-width: 100vh;
+  height: auto;
+  padding: 1.4rem;
 }
 .main-form
 {
-    margin: auto;
+  /* margin: auto; */
+    margin: 3rem auto 3rem auto;
     margin-bottom: 3rem;
     left: 50%; 
     padding: 10px;
