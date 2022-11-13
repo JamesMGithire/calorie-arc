@@ -1,0 +1,98 @@
+.user-profile *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: #191919;
+    margin-bottom: 2rem;
+}
+
+.user-profile{
+    background-color: #191919;
+    width: 100%;
+}
+
+.profile-picture img {
+    height: auto;
+    width: 430px;
+    border-radius: 50%;
+
+}
+.profile-picture {
+    width: 1130px;
+    max-width: 95%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.user-profile button {
+    background-color: #f9004d;
+    color: white;
+    text-decoration: none;
+    border: 2px solid transparent;
+    font-weight: bold;
+    padding: 13px 30px;
+    border-radius: 30px;
+    transition: .4s;
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+.user-profile .delete-account{
+    position: absolute;
+    display: unset;
+    width: 15%;
+    height:3rem;
+    margin: auto;
+    left: 75%;
+    top:20rem;
+    font-size: 0.96rem;
+    opacity: 0.8;
+    background-color: #850d33;
+}
+
+.user-profile button:hover {
+    background-color: transparent;
+    border: 2px solid;
+}
+
+.choices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+
+.meal-card {
+    height: 365px;
+    width: 335px;
+    padding: 20px 35px;
+    background: #191919;
+    border-radius: 20px;
+    margin: 15px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.meal-card  img {
+    margin: 25px 0px;
+    border-radius: 50px;  
+}
+
+.user-profile h5 {
+    color: white;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.pra p{
+    color: #fcfc;
+    font-size: 16px;
+    line-height: 27px;
+    margin-bottom: 25px;
+}
+
+
+

@@ -1,0 +1,32 @@
+.selected_meal{
+    box-shadow: 2px 2px 2px #4b4b4b;
+    border-radius: 2rem;
+    text-align: center;
+}
+.selected_meal img{
+    width: 350px;
+    height: 350px;
+    filter: grayscale(0.8);
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+}
+.selection_container{
+    margin: auto;
+    width: 90%;
+}
+.selection_div{
+  padding-top: 20px;
+  margin: auto auto 5rem auto;
+  display: grid;
+  width: 85%;
+  grid-template-columns: repeat(3, 350px);
+  grid-template-rows: auto;
+  column-gap: 30px;
+  row-gap: 25px;
+}
+.selected_meal *{
+transition-duration: 1s;}
+.selected_meal img:hover{
+    cursor: pointer;
+    filter: grayscale(0.5);
+}
