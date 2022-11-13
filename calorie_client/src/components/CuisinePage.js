@@ -23,12 +23,24 @@ function CuisinePage({ user, loggedIn }) {
   return (
     <div className="cuisine_page">
       <h1>AVAILABLE MEALS</h1>
-      <div className="choices-cuisines">
-        <button className="cuisines">Choose Cuisine</button>
-        <div className="options-cuisines">
-          <select></select>
+      <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">
+          Dropdown
+        </button>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
         </div>
       </div>
+      {/* <div className="choices-cuisines">
+        <button className="cuisines">Choose Cuisine</button>
+        <div className="options-cuisines">
+          <a>African</a>
+          <a>Asian</a>
+          <a>African</a>
+        </div>
+      </div> */}
       <div className="cuisine_header">
         <div>
           <h3>Images</h3>
