@@ -1,14 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-function CuisinePage({user, loggedIn}) {
-  const [meals, setMeals] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:9292/meals")
-    .then(res=>res.json())
-    .then((data)=>{
-        setMeals(data)
-    })
-  },[]);
+function CuisinePage({user, loggedIn, meals}) {
+  
   function addChoices(cuisineId){
     fetch("http://localhost:9292/choices",{
       method: "POST",
