@@ -23,6 +23,10 @@ function CuisinePage({user, loggedIn}) {
   return (
     <div className="cuisine_page">
         <h1>AVAILABLE MEALS</h1>
+        <label className="cuisines">Choose Cuisine</label>
+        <select>
+          
+        </select>
         <div className="cuisine_header">
             <div><h3>Images</h3></div>
             <div><h3> Name</h3></div>
